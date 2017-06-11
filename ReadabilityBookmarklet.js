@@ -2110,7 +2110,7 @@ var loc = document.location;
 var uri = { spec: loc.href, host: loc.host, prePath: loc.protocol + "//" + loc.host, scheme: loc.protocol.substr(0, loc.protocol.indexOf(":")), pathBase: loc.protocol + "//" + loc.host + loc.pathname.substr(0, loc.pathname.lastIndexOf("/") + 1) };
 var article = new Readability(uri, document).parse();
 content = article.content.replace(/<p[^>]*>/g, '').replace(/<\/p>/g, "\n");
-document.head.innerHTML = '';
+document.head.innerHTML = '<meta name="viewport" content="width=device-width" />';
 // document.head.innerHTML = '<link href="https://cdn.rawgit.com/builtbywill/booklet/1.4.4/booklet/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />';
 var style = document.createElement('style');
 style.type = 'text/css';
@@ -2149,7 +2149,6 @@ var initTurnJS = function($) {
         width: winW,
         when: {
             turned: function(e, page) {
-                /*console.log('Current view: ', $(this).turn('view'));*/
             }
         }
     });
@@ -2162,12 +2161,19 @@ loadScript('https://cdn.rawgit.com/blisszard/turn.js/08c1f659/turn.min.js', func
             $(window).ready(function() {
                 initTurnJS($);
             });
-            $('#pages').on('touchstart click', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var winH = $(window).height();
+            $('#pages').on('touchend click', function(e) {
                 var winW = ($(window).width());
                 var xPos = e.pageX;
+                if (xPos === undefined) {
+                  if (e.originalEvent !== undefined && e.originalEvent.touches[0] !== undefined) {
+                  xPos = e.originalEvent.touches[0].pageX;
+                  e.stopPropagation();
+                  e.preventDefault();
+                } else {
+                  return;
+                }
+              }
+
                 if (xPos <= winW / 2) {
                     $('#pages').turn('previous');
                 } else {
