@@ -2146,7 +2146,7 @@ var initTurnJS = function($) {
         gradients: true,
         duration: 0,
         height: winH,
-        width: winW,
+        width: "100%",
         when: {
             turned: function(e, page) {
             }
