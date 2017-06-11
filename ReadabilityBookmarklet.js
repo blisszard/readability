@@ -49,7 +49,7 @@ var loadReadability = function() {
     };
     var article = new Readability(uri, document).parse();
     content = article.content.replace(/<p[^>]*>/g, '').replace(/<\/p>/g, "\n");
-    document.head.innerHTML = '<meta name="viewport" content="width=device-width" />';
+    document.head.innerHTML = '<meta charset="utf-8"><meta name="viewport" content="width=device-width" />';
     // document.head.innerHTML = '<link href="https://cdn.rawgit.com/builtbywill/booklet/1.4.4/booklet/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />';
     var style = document.createElement('style');
     style.type = 'text/css';
@@ -126,7 +126,7 @@ var loadReadability = function() {
     var paginator = function() {
       jQuery(function($) {
         var contentBox = $('div#pages');
-        var words = contentBox.text().split(' ');
+        var words = contentBox.text().split(/( |\n)/); //Split but keep the delimiter
 
         function paginate() {
           var newPage = $('<div class="page" />');
@@ -135,15 +135,18 @@ var loadReadability = function() {
           for (var i = 0; i < words.length; i++) {
             var betterPageText;
             if (pageText) {
-              betterPageText = pageText + ' ' + words[i];
+              betterPageText = pageText + words[i];
             } else {
               betterPageText = words[i];
             }
             newPage.text(betterPageText);
+            if (words[i].startsWith('result')) {
+              // debugger;
+            }
             if (newPage.height() > $(window).height()) {
               newPage.text(pageText);
               newPage.clone().insertBefore(newPage)
-              pageText = null;
+              pageText = words[i];
             } else {
               pageText = betterPageText;
             }
