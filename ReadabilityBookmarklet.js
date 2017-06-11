@@ -2114,7 +2114,7 @@ document.head.innerHTML = '<meta name="viewport" content="width=device-width" />
 // document.head.innerHTML = '<link href="https://cdn.rawgit.com/builtbywill/booklet/1.4.4/booklet/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />';
 var style = document.createElement('style');
 style.type = 'text/css';
-style.appendChild(document.createTextNode('div#pages{white-space: pre-wrap;} #pages .turn-page{ background-color:#ccc; background-size:100% 100%; }'));
+style.appendChild(document.createTextNode('div#pages{white-space: pre-wrap;} body{ margin:0px; } div.page {padding:8px;} #pages .turn-page{ color:#fff; background-color:#383838; background-size:100% 100%; }'));
 document.getElementsByTagName('head')[0].appendChild(style);
 
 function loadScript(url, callback) {
