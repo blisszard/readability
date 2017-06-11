@@ -2,7 +2,7 @@ var httpProto = "https";
 var readabilitySrc = httpProto+"://cdn.rawgit.com/blisszard/readability/development/Readability.min.js";
 // var readabilitySrc = httpProto + "://192.168.11.114:8000/Readability.min.js";
 var jQuerySrc = httpProto + "://code.jquery.com/jquery-2.1.0.min.js";
-var turnSrc = httpProto + "://cdn.rawgit.com/blisszard/turn.js/08c1f659/turn.min.js";
+var turnSrc = httpProto + "://cdn.rawgit.com/blisszard/turn.js/dev_readability/turn.min.js";
 // var turnSrc = httpProto + "://192.168.11.114:8000/turn.js";
 
 function loadScript(url, callback) {
