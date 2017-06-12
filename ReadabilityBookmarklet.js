@@ -1,5 +1,5 @@
 var httpProto = "https";
-var readabilitySrc = httpProto+"://cdn.rawgit.com/blisszard/readability/development/Readability.min.js";
+var readabilitySrc = httpProto + "://cdn.rawgit.com/blisszard/readability/development/Readability.min.js";
 // var readabilitySrc = httpProto + "://192.168.11.114:8000/Readability.min.js";
 var jQuerySrc = httpProto + "://code.jquery.com/jquery-2.1.0.min.js";
 var turnSrc = httpProto + "://cdn.rawgit.com/blisszard/turn.js/dev_readability/turn.min.js";
@@ -124,40 +124,72 @@ var loadReadability = function() {
     document.body.innerHTML = '<div id="pages">' + jQuery(content).text() + '</div>';
     //Todo:  Needs better algos
     var paginator = function() {
-      jQuery(function($) {
-        var contentBox = $('div#pages');
-        var words = contentBox.text().split(/( |\n)/); //Split but keep the delimiter
+        jQuery(function($) {
+          var contentBox = $('div#pages');
+          var words = contentBox.text().split(/( |\n+)/); //Split but keep the delimiter
 
-        function paginate() {
-          var newPage = $('<div class="page" />');
-          contentBox.empty().append(newPage);
-          var pageText = null;
-          for (var i = 0; i < words.length; i++) {
-            var betterPageText;
-            if (pageText) {
-              betterPageText = pageText + words[i];
-            } else {
-              betterPageText = words[i];
-            }
-            newPage.text(betterPageText);
-            if (words[i].startsWith('result')) {
-              // debugger;
-            }
-            if (newPage.height() > $(window).height()) {
-              newPage.text(pageText);
-              newPage.clone().insertBefore(newPage)
-              pageText = words[i];
-            } else {
-              pageText = betterPageText;
+          function paginate() {
+            var newPage = $('<div class="page" style="font-size:1.2em"/>');
+            contentBox.empty().append(newPage);
+            var pageText = "";
+            var winHeight = $(window).height();
+            var cnt = 0;
+            var pageCnt = 0;
+            var prevText = "";
+            // var page = [];
+            for (var i = 0; i < words.length; i++) {
+              prevText = pageText + words[i];
+              newPage.text(prevText);
+              // if (words[i].startsWith('result')) {
+              //   // debugger;
+              // }
+              cnt++;
+              // if (cnt > 100 && (pageCnt>0?page[pageCnt-1]-100<cnt:true) && newPage.height() > winHeight) {
+              if (cnt > 100 && (pageCnt > 100 ? pageCnt / 2 < cnt : true) && newPage.height() > winHeight) {
+                // page[pageCnt++] = cnt;
+                pageCnt = (pageCnt > 0 && pageCnt < cnt) ? pageCnt : cnt;
+                cnt = 0;
+                newPage.text(pageText);
+                newPage.clone().insertBefore(newPage)
+                pageText = words[i];
+              } else {
+                pageText = prevText;
+              }
+              /*
+              var betterPageText;
+                          if (pageText) {
+                            betterPageText = pageText + words[i];
+                          } else {
+                            betterPageText = words[i];
+                          }
+                          newPage.text(betterPageText);
+                          if (words[i].startsWith('result')) {
+                            // debugger;
+                          }
+                          if (newPage.height() > $(window).height()) {
+                            newPage.text(pageText);
+                            newPage.clone().insertBefore(newPage)
+                            pageText = words[i];
+                          } else {
+                            pageText = betterPageText;
+                          }
+              */
+
             }
           }
-        }
-        paginate();
+          paginate();
 
-      });
-    }
-
+        });
+      }
+      // var suite = new Benchmark.Suite;
+      // suite.add('paginator#test', function() {
     paginator();
+    //   })
+    // .on('complete', function() {
+    //   console.log('Fastest is ' + this.filter('fastest').map('name'));
+    // })
+    // .run({ 'async': false });
+
   });
 }
 
