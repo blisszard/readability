@@ -50,10 +50,9 @@ var loadReadability = function() {
     var article = new Readability(uri, document).parse();
     content = article.content.replace(/<p[^>]*>/g, '').replace(/<\/?(p|br)>/g, "\n");
     console.clear();
-    console.log(article.content);
     // var pattern = "<(/?(a|b|img).*?)>";
     // content = content.replace(new RegExp(pattern, 'g'), '{$1}');
-    var pattern = "<((a|b|img).*)>";
+    var pattern = "<((a|img).*)>";
     var replaceWord = content.match(new RegExp(pattern, 'g'));
     content = content.replace(new RegExp(pattern, 'g'), '{replace}');
     document.head.innerHTML = '<meta charset="utf-8"><meta name="viewport" content="width=device-width" />';
@@ -130,6 +129,7 @@ var loadReadability = function() {
         });
     });
     pattern = "{(.*?)}";
+    // console.log(replaceWord);
     // console.log(jQuery(content).text());
     document.body.innerHTML = '<div id="pages">' + jQuery(content).text() + '</div>';
     //Todo:  Needs better algos
@@ -152,6 +152,7 @@ var loadReadability = function() {
             var word = words[i];
             if (word == "{replace}") {
               word = replaceWord[replaceAt];
+              // console.log("word", replaceAt, word);
               replaceAt++;
             }
             prevText = pageText + word; //words[i];
@@ -169,8 +170,11 @@ var loadReadability = function() {
               newPage.clone().insertBefore(newPage);
               pageText = words[i];
               if (pageText == "{replace}") {
+                replaceAt--;
                 pageText = replaceWord[replaceAt];
+                // console.log("pageText", replaceAt, pageText);
                 replaceAt++;
+
               }
             } else {
               pageText = prevText;
@@ -203,7 +207,7 @@ var loadReadability = function() {
     };
     // var suite = new Benchmark.Suite;
     // suite.add('paginator#test', function() {
-    paginator();
+    setTimeout(paginator(), 0);
     //   })
     // .on('complete', function() {
     //   console.log('Fastest is ' + this.filter('fastest').map('name'));
