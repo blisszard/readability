@@ -1,0 +1,164 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+b,strong {
+    font-weight: inherit;
+    font-weight: bolder
+}
+
+dfn {
+    font-style: italic
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+mark {
+    background-color: #ff0;
+    color: #000
+}
+
+small {
+    font-size: 80%
+}
+
+sub,sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sub {
+    bottom: -.25em
+}
+
+sup {
+    top: -.5em
+}
+
+img {
+    border-style: none
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+
+html {
+    box-sizing: border-box
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+    height: 100%
+}
+
+img {
+    width: 100%
+}
+
+    #pager_container {
+        color: rgba(0, 0, 0, 0.87);
+        background-color: rgb(255, 255, 255);
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+        border-radius: 0px;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        padding: 10px 10px 20px;
+        left: 50%;
+        z-index: 20;
+    }
+
+.PartReader__content___W64cs {
+    font-size: 12pt;
+    letter-spacing: 0;
+    line-height: 1.3em;
+    height: 100%;
+    overflow: visible;
+    position: relative;
+    padding: 0;
+
+    font-size: 20px; 
+    font-family: Crimson Text;
+/*    -webkit-column-width: 430px;
+    -moz-column-width: 430px;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;*/
+    -webkit-transition-property: right;
+    -webkit-transition-duration: .5s;
+    -webkit-transition-timing-function: ease;
+    -webkit-user-select: none
+}
+
+.PartReader__content___W64cs p {
+    text-indent: 1em;
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.PartReader__content___W64cs hr {
+    page-break-after: always
+}
+
+.PartReader__content___W64cs h1 {
+    line-height: 1.6em
+}
+
+.PartReader__content___W64cs h2 {
+    font-size: 1.5em
+}
+
+.PartReader__content___W64cs h3 {
+    font-size: 1.17em
+}
+
+.PartReader__content___W64cs h1,.PartReader__content___W64cs h2,.PartReader__content___W64cs h3 {
+    page-break-after: avoid;
+    text-align: center
+}
+
+.PartReader__content___W64cs img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 4px
+}
+
+.PartReader__content___W64cs .PartReader__large___1ay0W {
+    font-size: 200%;
+    font-weight: 700
+}
+
+.PartReader__content___W64cs .PartReader__medium___3TfBq {
+    font-size: 130%
+}
+
+.PartReader__content___W64cs .PartReader__center___1BdrY {
+    text-align: center
+}
+
+.PartReader__content___W64cs .noindent {
+    text-indent: 0
+}
+
+.PartReader__content___W64cs .centerp {
+    text-align: center
+}
