@@ -85,7 +85,7 @@ img {
         z-index: 20;
     }
 
-.PartReader__content___W64cs {
+#pages_5NPJADvYjZY {
     font-size: 12pt;
     letter-spacing: 0;
     line-height: 1.3em;
@@ -106,34 +106,34 @@ img {
     -webkit-user-select: none
 }
 
-.PartReader__content___W64cs p {
+#pages_5NPJADvYjZY p {
     text-indent: 1em;
     margin-top: 0;
     margin-bottom: 0
 }
 
-.PartReader__content___W64cs hr {
+#pages_5NPJADvYjZY hr {
     page-break-after: always
 }
 
-.PartReader__content___W64cs h1 {
+#pages_5NPJADvYjZY h1 {
     line-height: 1.6em
 }
 
-.PartReader__content___W64cs h2 {
+#pages_5NPJADvYjZY h2 {
     font-size: 1.5em
 }
 
-.PartReader__content___W64cs h3 {
+#pages_5NPJADvYjZY h3 {
     font-size: 1.17em
 }
 
-.PartReader__content___W64cs h1,.PartReader__content___W64cs h2,.PartReader__content___W64cs h3 {
+#pages_5NPJADvYjZY h1,#pages_5NPJADvYjZY h2,#pages_5NPJADvYjZY h3 {
     page-break-after: avoid;
     text-align: center
 }
 
-.PartReader__content___W64cs img {
+#pages_5NPJADvYjZY img {
     max-height: 100%;
     max-width: 100%;
     width: auto;
@@ -142,23 +142,10 @@ img {
     padding-bottom: 4px
 }
 
-.PartReader__content___W64cs .PartReader__large___1ay0W {
-    font-size: 200%;
-    font-weight: 700
-}
-
-.PartReader__content___W64cs .PartReader__medium___3TfBq {
-    font-size: 130%
-}
-
-.PartReader__content___W64cs .PartReader__center___1BdrY {
-    text-align: center
-}
-
-.PartReader__content___W64cs .noindent {
+#pages_5NPJADvYjZY .noindent {
     text-indent: 0
 }
 
-.PartReader__content___W64cs .centerp {
+#pages_5NPJADvYjZY .centerp {
     text-align: center
 }
